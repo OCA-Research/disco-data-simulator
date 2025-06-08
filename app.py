@@ -70,8 +70,8 @@ def run_simulator(num_customers, num_months, tampering_rate):
 demo = gr.Interface(
     fn=run_simulator,
     inputs=[
-        gr.Number(label="Number of Customers", value=5000),
-        gr.Number(label="Number of Months", value=12),
+        gr.Slider(minimum=100, maximum=10000, step=100, value=5000, label="Number of Customers"),
+        gr.Slider(minimum=1, maximum=24, step=1, value=12, label="Number of Months"),
         gr.Slider(0.0, 0.2, value=0.015, step=0.005, label="Tampering Rate")
     ],
     outputs=gr.File(label="Download CSV"),
